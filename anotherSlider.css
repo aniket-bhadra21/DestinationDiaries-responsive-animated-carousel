@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #000;
+    color: #eee;
+    margin:0;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+    color: #eee;
+}
+
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    /* text on top*/
+    position: relative;
+    z-index: 100;
+
+    /* testing */
+    /* background-color: red; */
+}
+
+header a{
+    margin-right: 40px;
+}
+
+
+/*............................CAROUSEL..................................... */
+.carousel{
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    margin-top: -50px;
+    position: relative;
+
+}
+
+.carousel .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #004 ;
+
+}
+
+.carousel .list .item .content .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+
+.carousel .list .item .content .title,
+.carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 5rem;
+    list-style: 1.3rem;
+
+}
+
+.carousel .list .item .content .topic{
+    color: #f1683a;
+}
+
+.carousel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2,130px);
+    grid-template-rows: 40px;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.carousel .list .item .content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.carousel .list .item .content button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+.carousel .list .item .des{
+
+padding: 0 230px 0 0;
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2),
+.carousel .list .item:nth-child(3),
+.carousel .list .item:nth-child(4)
+{
+    opacity: 0;
+}
+.carousel .list .item.active{
+    opacity: 1;
+}
+
+ /* thumbnail design-----------------------------*/
+
+ .thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 180;
+    display: flex;
+    gap: 20px;
+ }
+
+ .thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+    opacity: 0.6;
+    cursor: pointer;
+ }
+
+
+ .thumbnail .item img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
+    /* z-index: 100; */
+ }
+
+ .thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+ }
+
+ .thumbnail .item .content .title{
+    font-weight: bold;
+ }
+
+ .thumbnail .item .content .des{
+    /* color: #f1683a; */
+    font-weight: bold;
+    font-size: 0.7rem;
+    list-style: .7rem;
+    opacity: 0.5;
+ }
+
+ .thumbnail .item.active{
+    opacity: 1;
+    /* border:2px solid ; */
+    filter: drop-shadow(10px 10px 5px #f1683a);
+    /* transform: skew(0deg,-5deg); */
+ }
+
+
+ /*-----------------arrows---------------------- */
+
+ .arrows{
+    position: absolute;
+    top: 85%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+ }
+
+ .arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.5);
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    z-index: 100;
+    cursor: pointer;
+    transition: all .5s;
+ }
+
+ .arrows button:hover{
+    background-color: #eee;
+    color: #555;
+ }
+
+ .carousel .list .item:nth-child(1){
+    z-index: 1;
+ }
+
+ .carousel .list .item:nth-child(1) .author,
+ .carousel .list .item:nth-child(1) .title,
+ .carousel .list .item:nth-child(1) .topic,
+ .carousel .list .item:nth-child(1) .des,
+ .carousel .list .item:nth-child(1) .buttons{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+ }
+
+ @keyframes showContent{
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+ }
+ .carousel .list .item:nth-child(1) .title{
+    animation-delay: 1.2s;
+ }
+ .carousel .list .item:nth-child(1) .topic{
+    animation-delay: 1.4s;
+ }
+ .carousel .list .item:nth-child(1) .des{
+    animation-delay: 1.6s;
+ }
+
+ .carousel .list .item:nth-child(1) .buttons{
+    animation-delay: 1.8s;
+ }
+
+ /*------------------thumbnail image to large image---------------- */
+
+ .carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+ }
+
+ @keyframes showImage{
+    to{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+ }
+
+ .carousel.next .thumbnail .item:nth-last-child(1){
+    width:0;
+    overflow: hidden;
+    animation: showThumbnail 0.5s linear 1 forwards;
+ }
+
+ @keyframes showThumbnail{
+    to{
+        width: 150px;
+    }
+ }
+
+.carousel.next .thumbnail{
+    transform: translateX(150px);
+    animation: transformThumbnail 0.5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail{
+    to{
+        transform: translateX(0);
+    }
+}
+
+
+/* when user preses <, prev applied */
+/*------------------------------prev styles----------------*/
+
+.carousel .list .item:nth-child(2){
+    opacity: 1;
+}
+
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+    
+}
+
+@keyframes outImage{
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+        z-index: -100;
+        /* border: 5px solid; */
+        /* opacity: 0.7; */
+    }
+}
+
+
+.carousel.prev .thumbnail .item:nth-child(1){
+    width: 0;
+    overflow: hidden;
+    opacity: 1;
+    animation: showThumbnail 0.5s linear 1 forwards;
+
+}
+
+/* with prev 2nd image is scaled down into thumbnail size & overlapped behind 1st thumbnail image, but the content of 2nd image is still there, which is overlapping currently active image content*/
+
+/*so, get rid of that----------------- */
+
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .buttons{
+    animation: contentOut 1.5s linear 1 forwards;
+}
+
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+/* with this it seems like--then 2nd item comes on top & the (2nd) image scale down to thumbnail and overlapped behind first thumbnail, and the content of the second item vaporized with this animation. along with that 1st thumbnail image scaled into its original width with animation.ca*/
+
+
+/* during the slider process prevent user to, press arrow buttons when animation is running  */
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+
+/* check the running time of a animation*/
+.time{
+    width: 0%;
+    height: 5px;
+    background-color: #f1683a;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+
+.carousel.next .time, .carousel.prev .time{
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+@keyframes timeRunning{
+    to{
+        width:0;
+    }
+}
+
+
+@media (max-width:678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
+    
+}
+
+@media (max-width:968px){
+    .carousel .list .item .des{
+        padding: 0 130px 0 0;
+        }
+}
+
+
+
+@media(max-width:768px){
+
+    .thumbnail .item{
+        width:70px;
+        height:110px;
+        flex-shrink: 1;
+        gap:4px;
+    }
+
+    .thumbnail .item .content .des{
+        /* color: #f1683a; */
+        font-weight: bold;
+        font-size: 0.3rem;
+        list-style: .2rem;
+        opacity: 0.5;
+     }
+
+     .carousel .list .item .content .title,
+    .carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 2.5rem;
+    list-style: 0.7rem;
+
+}
+.carousel .list .item .content .des{
+    font-size: 0.6rem;
+}
+
+.carousel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+    grid-template-rows: 25px;
+    gap: 9px;
+    margin-top: 15px;
+}
+.carousel .list .item .content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.carousel .list .item .content button:nth-child(2){
+   
+    border: 2px solid #eee;
+}
+
+}
