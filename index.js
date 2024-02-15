@@ -19,7 +19,7 @@ let timeRunning = 3000;
 let runTimeout;
 
 //auto next
-let timeAutoNext = 4500;
+let timeAutoNext = 5000;
 let runAutoRun;
 
 runAutoRun = setTimeout(() => {

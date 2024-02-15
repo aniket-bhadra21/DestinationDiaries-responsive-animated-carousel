@@ -170,7 +170,7 @@ padding: 0 230px 0 0;
 
  .arrows{
     position: absolute;
-    top: 80%;
+    top: 85%;
     right: 52%;
     width: 300px;
     max-width: 30%;
@@ -183,7 +183,7 @@ padding: 0 230px 0 0;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #eee4;
+    background-color: rgba(128, 128, 128, 0.5);
     border: none;
     font-family: monospace;
     color: #fff;
@@ -384,4 +384,62 @@ padding: 0 230px 0 0;
         font-size: 30px;
     }
     
+}
+
+@media (max-width:968px){
+    .carousel .list .item .des{
+        padding: 0 130px 0 0;
+        }
+}
+
+
+
+@media(max-width:768px){
+
+    .thumbnail .item{
+        width:70px;
+        height:110px;
+        flex-shrink: 1;
+        gap:4px;
+    }
+
+    .thumbnail .item .content .des{
+        /* color: #f1683a; */
+        font-weight: bold;
+        font-size: 0.3rem;
+        list-style: .2rem;
+        opacity: 0.5;
+     }
+
+     .carousel .list .item .content .title,
+    .carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 2.5rem;
+    list-style: 0.7rem;
+
+}
+.carousel .list .item .content .des{
+    font-size: 0.6rem;
+}
+
+.carousel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+    grid-template-rows: 25px;
+    gap: 9px;
+    margin-top: 15px;
+}
+.carousel .list .item .content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.carousel .list .item .content button:nth-child(2){
+   
+    border: 2px solid #eee;
+}
+
 }
